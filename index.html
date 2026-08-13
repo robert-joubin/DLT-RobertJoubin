@@ -257,6 +257,17 @@
     .tile.petite { grid-column: span 1; }
   }
 </style>
+<style>
+  .seuil-invite {
+    margin: 0 0 26px 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 12px;
+  }
+  .seuil-invite a { border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
+  .seuil-invite a:hover { text-decoration: none; border-bottom-color: var(--muted); }
+  .seuil-invite span { color: var(--muted); }
+</style>
 </head>
 <body>
 
@@ -283,6 +294,7 @@
     <!-- ============ ÉTAGE 1 — AGIR ============ -->
 
     <div id="accueil" class="section visible">
+      <p class="seuil-invite"><a href="seuil.html">passer le seuil</a><span> &mdash; une autre manière d'entrer. Trois minutes.</span></p>
       <p class="lead">Je pratique le théâtre depuis trente-cinq ans. Je joue, je mets en scène, j'écris, j'enseigne. La dynamique du groupe et la recherche de chacun sont au centre de ce travail.</p>
       <p>Vous trouverez ici les ateliers à la semaine, les stages, les interventions en milieu scolaire et en entreprise, l'accompagnement des pédagogues, les créations et l'agenda des rendez-vous à venir. Et dans l'approche, ce que je cherche en le faisant.</p>
       <p>J'espère que vous y trouverez ce que vous cherchez.</p>
@@ -1477,5 +1489,12 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+try {
+  if (localStorage.getItem('seuil-passe')) {
+    document.querySelectorAll('.seuil-invite').forEach(function(e){ e.style.display='none'; });
+  }
+} catch (e) {}
+</script>
 </body>
 </html>
