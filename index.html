@@ -1492,14 +1492,7 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-// l'invitation reste toujours visible ; seul le libellé change pour qui revient
-try {
-  if (localStorage.getItem('seuil-passe')) {
-    document.querySelectorAll('.seuil-invite a').forEach(function(a){ a.textContent = 'repasser le seuil'; });
-  }
-} catch (e) {}
-</script>
+
 <div id="seuil-overlay" aria-hidden="true">
   <div id="sx-glow"></div>
   <div id="sx-stage">
@@ -1651,40 +1644,76 @@ function vite(retour){
 }
 var Q2={
  manque:{p:"Un manque, ça se loge toujours quelque part.",
-  o:[["dans la voix","voix"],["dans le corps","corps"],["dans le groupe","groupe"],["dans le temps","temps"]]},
+  o:[["dans la voix","voix"],["dans le corps","corps"],["dans ma façon d'être avec les autres","groupe"],["dans mes semaines","temps"]]},
  curiosite:{p:"La curiosité, c'est déjà un mouvement.",
-  o:[["vers la scène","scene"],["vers les autres","groupe"],["vers moi","soi"],["vers un métier","voix"]]},
+  o:[["vers la scène","jeu"],["vers le mouvement","corps"],["vers moi","soi"],["vers ceux qui transmettent","transmettre"]]},
  autre:{p:"On arrive rarement seul.",
-  o:[["on m'a poussé","soi"],["je viens regarder","voir"],["on travaille ensemble","groupe"],["je cherche pour quelqu'un","voir"]]},
+  o:[["on m'a poussé","soi"],["je viens regarder","voir"],["c'est pour un enfant","enfant"],["c'est pour une équipe","equipe"]]},
  rien:{p:"C'est peut-être la meilleure façon d'arriver.",
-  o:[["alors je traîne","voir"],["alors j'écoute","voir"],["alors je touche à tout","scene"]]}
+  o:[["alors je regarde ce qui se joue","voir"],["alors je touche à tout","jeu"],["alors rien, vraiment","rien"]]}
+};
+var Q3={
+ voix:{p:"La voix, on croit que c'est un outil. C'est l'expression intime de soi.",
+  o:[["devant une salle","parole"],["au travail, devant mon équipe","entreprise"],["nulle part encore, mais ça me tient","hebdo"]]},
+ corps:{p:"Le corps garde ce qu'on n'a pas dit. Il le garde longtemps.",
+  o:[["je voudrais bouger, simplement","danse"],["je voudrais que ça serve au jeu","hebdo"],["je voudrais voir ce que ça donne chez d'autres","spectacles"]]},
+ groupe:{p:"On n'est pas un groupe parce qu'on est plusieurs. Ça se crée, et parfois ça se recrée.",
+  o:[["un groupe qui crée quelque chose","creation"],["l'équipe où je travaille","entreprise"],["un groupe où je serais un parmi d'autres","hebdo"]]},
+ temps:{p:"Un rendez-vous, c'est ce qui tient une année.",
+  o:[["toute l'année, chaque semaine","hebdo"],["une semaine où tout s'arrête","interpretation"],["quelques séances, pas plus","parole"]]},
+ jeu:{p:"Jouer demande du temps. La question, c'est à quel rythme.",
+  o:[["une fois par semaine, toute l'année","hebdo"],["une semaine, à fond","interpretation"],["quinze jours, et jouer devant du monde","creation"],["d'abord regarder","agenda"]]},
+ soi:{p:"Peu importe comment vous êtes arrivé. Maintenant, vous êtes là.",
+  o:[["je voudrais essayer","hebdo"],["je voudrais d'abord regarder","agenda"],["je ne voudrais rien du tout","rien"]]},
+ transmettre:{p:"On croit qu'il faut savoir avant de transmettre. C'est plutôt le contraire.",
+  o:[["je le fais déjà, et je le fais seul","suivi"],["je n'ai encore rien transmis","formation"],["je transmets, mais pas du théâtre","entreprise"]]},
+ enfant:{p:"Un enfant fait du théâtre pour découvrir le monde.",
+  o:[["il est encore à l'école","vacances"],["il a entre quinze et vingt ans","hebdo"],["je ne sais pas si c'est pour lui","agenda"]]},
+ equipe:{p:"Une équipe, ça ne se décrète pas.",
+  o:[["c'est mon travail","entreprise"],["c'est une troupe, une association","creation"],["je ne dirige rien, je constate","rien"]]},
+ voir:{p:"Théâtre, en grec : le lieu d'où l'on regarde.",
+  o:[["ce qui se joue bientôt","agenda"],["ce que vous avez monté","spectacles"],["rien, en fait","rien"]]},
+ rien:{p:"Ne rien chercher, c'est une position. Elle tient.",
+  o:[["je reste là un moment","rien"],["montrez-moi quand même ce qui se joue","agenda"],["montrez-moi ce que vous faites","spectacles"]]}
 };
 var SORTIES={
- atelier:{p:"Vous ne venez pas apprendre à jouer.<br>Vous venez voir ce qui se passe quand vous arrêtez de vous en empêcher.",
-  e:"Une fois par semaine, toute l'année, à l'heure. C'est le prix, et il n'y en a pas d'autre.",
-  d:"Les ateliers",s:"ateliers",a:"a-hebdo"},
- stage:{p:"Se mettre en jeu, c'est accepter d'être vu avant d'être prêt.",
-  e:"Une semaine, tous les jours. Vous n'aurez pas le temps de vous préparer. C'est fait pour.",
-  d:"Stages et créations",s:"ateliers",a:"a-interpretation"},
+ hebdo:{p:"Vous ne venez pas apprendre à jouer.<br>Vous venez voir ce qui se passe quand vous arrêtez de vous en empêcher.",
+  e:"Une fois par semaine, toute l'année, à l'heure. C'est le prix à payer — il ne se paie pas en argent, il se paie de présence. Et il n'y en a pas d'autre.",
+  d:"Les ateliers hebdomadaires",s:"ateliers",a:"a-hebdo"},
+ interpretation:{p:"Jouer, c'est accepter d'être vu.",
+  e:"Cinq jours de suite, avec le même partenaire, sur une scène du répertoire. Vous n'aurez pas le temps de vous protéger. À ce rythme, la tête finit par lâcher — et c'est là que vous découvrez ce que vous ne saviez pas faire.",
+  d:"Le stage d'interprétation",s:"ateliers",a:"a-interpretation"},
+ creation:{p:"Quinze jours pour fabriquer quelque chose,<br>et trois soirs où des gens viennent le voir.",
+  e:"Le public n'attend pas que vous soyez prêt. C'est lui qui vous apprend ce que vous avez fait.",
+  d:"Le stage de création",s:"ateliers",a:"a-creation"},
+ danse:{p:"Le corps garde ce qu'on n'a pas dit.<br>Il le garde longtemps.",
+  e:"Il n'y a rien à réussir, et c'est ce qui rend la chose difficile. Personne ne vous dira si c'était bien.",
+  d:"Danse, mouvement libre",s:"ateliers",a:"a-danse"},
  parole:{p:"Il ne s'agit pas d'apprendre à parler en public.<br>Il s'agit de devenir celui qui parle.",
   e:"Ça ne se règle pas en un après-midi, et personne ne peut le faire à votre place.",
-  d:"Prise de parole",s:"ateliers",a:"a-parole"},
- collectif:{p:"Une équipe, c'est souvent des gens qui ne se sont jamais vraiment regardés.",
+  d:"L'atelier prise de parole",s:"ateliers",a:"a-parole"},
+ vacances:{p:"Un enfant qui monte sur un plateau n'apprend pas à jouer la comédie.<br>Il découvre qui il est.",
+  e:"Il jouera devant vous à la fin de la semaine. Ce sera peut-être maladroit. Ce sera à lui.",
+  d:"Théâtre en vacances",s:"ateliers",a:"a-vacances"},
+ formation:{p:"Le groupe attend que vous décidiez.<br>Personne ne vous a dit comment on fait.",
+  e:"Deux jours ne feront pas de vous un pédagogue. Ils vous rendront les questions que vous aviez mises de côté — et c'est de là que vient l'invention, quand on se retrouve seul devant un groupe.",
+  d:"La formation d'encadrants",s:"ateliers",a:"a-formation"},
+ suivi:{p:"Ce qui s'est passé dans la séance, vous le repassez seul, le soir.<br>Personne ne vous demande jamais comment ça s'est terminé.",
+  e:"Il n'y aura pas de méthode à appliquer. Seulement quelqu'un qui reprend avec vous ce qui a résisté.",
+  d:"Le suivi individuel",s:"ateliers",a:"a-suivi"},
+ spectacles:{p:"Avant de proposer quoi que ce soit, il y a le travail lui-même.",
+  e:"Vous y verrez ce que ça donne, pas ce que ça promet. C'est plus honnête et c'est plus risqué.",
+  d:"Les créations",s:"creations"},
+ entreprise:{p:"Une équipe, c'est souvent des gens qui ne se sont jamais vraiment regardés.",
   e:"Ce qui remontera ne sera pas forcément ce que vous vouliez voir. C'est à cette condition que quelque chose bouge.",
   d:"Management au présent",url:"https://managementaupresent.robertjoubin.fr/"},
- voir:{p:"Théâtre, en grec : le lieu d'où l'on regarde.<br>Ce lieu, c'est votre place dans la salle. C'est aussi votre âge, votre histoire, ce que vous avez traversé.",
+ agenda:{p:"Théâtre, en grec : le lieu d'où l'on regarde.<br>Ce lieu, c'est votre place dans la salle. C'est aussi votre âge, votre histoire, ce que vous avez traversé.",
   e:"Ici on ne vous demandera rien. C'est devenu rare.",
   d:"L'agenda",s:"agenda"},
- rienn:{p:"Vous n'aviez peut-être rien à chercher.",
+ rien:{p:"Vous n'aviez peut-être rien à chercher.",
   e:"Le théâtre ne répare personne. Il rend seulement visible ce qui était déjà là.",
   d:"Un texte, simplement",s:"approche"}
 };
-function resoudre(th,fin){
-  if(fin==="travail")return(th==="voix"||th==="soi")?"parole":"collectif";
-  if(fin==="seul")return(th==="voix"||th==="soi")?"parole":(th==="voir"?"rienn":"stage");
-  if(fin==="autres")return(th==="scene")?"stage":"atelier";
-  return(th==="voir")?"voir":"rienn";
-}
 function vitrine(){
   clear();TRACE.textContent="";trace=[];ecrit="";gronde=false;GLOW.classList.remove("on");
   T(function(){
@@ -1722,7 +1751,12 @@ function seuil(){
 }
 function ouvrir(){
   GLOW.classList.add("on");toc();
-  dis("Bonsoir.","Vous êtes entré. Il n'y a rien à acheter ici.",function(){T(accueil,600);});
+  clear();
+  T(function(){L1.innerHTML="Bonsoir.";L1.classList.add("in");},900);
+  T(function(){L2.innerHTML="Vous êtes entré.";L2.classList.add("in");},3800);
+  T(function(){L2.classList.remove("in");},7200);
+  T(function(){L2.innerHTML="Il n'y a rien à acheter ici.";L2.classList.add("in");},8800);
+  T(accueil,13000);
 }
 function accueil(){
   dis("Qu'est-ce que vous cherchez ?","",function(){
@@ -1738,7 +1772,7 @@ function ecrire(){
   salle(0,.5);fond(.012,1.5);clear();
   T(function(){
     L1.innerHTML="Maintenant, dites-le.";L1.classList.add("in");
-    L2.innerHTML="Finissez la phrase. Une ligne, même maladroite — ce n'est pas un formulaire, personne ne la lira. Mais tant qu'elle n'est pas écrite, elle reste vague.";
+    L2.innerHTML="Finissez la phrase. Une ligne, même maladroite. Plus vous êtes sincère, plus vous risquez d'être conduit vers ce qui vous concerne vraiment — et tant qu'elle n'est pas écrite, elle reste vague. Ce n'est pas un formulaire : personne ne la lira.";
     L2.classList.add("in");
     var row=document.createElement("div");row.id="sx-amorce";
     var pre=document.createElement("span");pre.id="sx-prefixe";pre.textContent="Ce que je cherche, c'est";
@@ -1763,16 +1797,14 @@ function ecrire(){
   },900);
 }
 function q3(){
-  dis("Et ça se passerait…","",function(){
-    choix([["seul","seul"],["avec d'autres","autres"],["là où je travaille","travail"],["je ne sais pas encore","flou"]],
-      function(f){envers(resoudre(theme,f));});
-  });
+  var s=Q3[theme]||Q3.rien;
+  dis(s.p,"",function(){choix(s.o,function(k){envers(k);});});
 }
 function envers(k){
   salle(0,2);fond(.02,2);GLOW.classList.remove("on");clear();
   T(function(){
     L1.innerHTML="Avant d'aller plus loin.";L1.classList.add("in");
-    L2.innerHTML="Rien de ce qui est proposé ici ne va régler quoi que ce soit. Le théâtre est un outil. Un stage est un outil. Un atelier est un outil.<br><br>Un outil au service de quoi, au fait ?";
+    L2.innerHTML="Rien de ce qui est proposé ici ne réglera quoi que ce soit à votre place. Le théâtre est un outil. Un stage est un outil. Un atelier est un outil.<br><br>Un outil au service de quoi, au fait ?";
     L2.classList.add("in");
   },400);
   T(function(){choix([["je continue","go"]],function(){salle(.022,3);fond(.045,3);sortie(k);});},5200);
@@ -1820,11 +1852,6 @@ window.fermerSeuil=function(){
   o.classList.remove("ouvert");o.setAttribute("aria-hidden","true");
   if(PORTE)PORTE.classList.remove("in");
   document.body.style.overflow="";
-  try{
-    if(localStorage.getItem("seuil-passe")){
-      document.querySelectorAll(".seuil-invite a").forEach(function(a){a.textContent="repasser le seuil";});
-    }
-  }catch(e){}
 };
 document.addEventListener("keydown",function(e){
   if(e.key==="Escape"){
