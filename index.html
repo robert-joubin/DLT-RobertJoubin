@@ -1516,12 +1516,22 @@ window.addEventListener('DOMContentLoaded', function() {
   font-family:var(--sxserif);font-weight:300;font-size:16px;line-height:1.5;overflow:hidden;
 }
 #seuil-overlay.ouvert{display:block}
+/* hauteur réelle de la fenêtre mobile, barres du navigateur déduites */
+@supports (height:100dvh){#seuil-overlay{height:100dvh}}
 #sx-glow{position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(60% 50% at 50% 42%,rgba(184,135,74,.10),transparent 70%);
   opacity:0;transition:opacity 3s ease}
 #sx-glow.on{opacity:1}
 #sx-stage{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;
-  justify-content:center;padding:clamp(1.6rem,5vw,5rem);max-width:56rem}
+  padding:clamp(1.6rem,5vw,5rem);
+  padding-top:calc(clamp(1.6rem,5vw,5rem) + env(safe-area-inset-top,0px) + 1rem);
+  padding-bottom:calc(clamp(1.6rem,5vw,5rem) + env(safe-area-inset-bottom,0px) + 4rem);
+  max-width:56rem;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+/* Centrage vertical qui ne coupe jamais le haut : quand le texte est plus grand
+   que l'écran, les marges auto se résorbent, le texte repart du haut et défile. */
+#sx-stage::before{content:"";display:block;flex:0 0 0;margin-top:auto}
+#sx-stage::after{content:"";display:block;flex:0 0 0;margin-bottom:auto}
 #seuil-overlay .sx-line{font-family:var(--sxserif);font-weight:300;
   font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.55;max-width:32ch;color:var(--chalk);
   margin:0;opacity:0;transform:translateY(10px);transition:opacity 1.4s ease,transform 1.4s ease}
@@ -1541,10 +1551,10 @@ window.addEventListener('DOMContentLoaded', function() {
 #seuil-overlay .sx-mot.in{opacity:1;transform:none}
 #seuil-overlay .sx-mot:hover,#seuil-overlay .sx-mot:focus-visible{
   color:var(--chalk);border-bottom-color:var(--faint);outline:none;background:none;text-decoration:none}
-#sx-trace{position:absolute;left:clamp(1.6rem,5vw,5rem);bottom:2.2rem;z-index:2;
+#sx-trace{position:absolute;left:clamp(1.6rem,5vw,5rem);bottom:calc(2.2rem + env(safe-area-inset-bottom,0px));z-index:2;
   font-family:var(--sxmono);font-size:11px;letter-spacing:.16em;color:#5C554B;
   text-transform:lowercase;max-width:70vw;line-height:2}
-#sx-porte{position:absolute;right:clamp(1.6rem,5vw,5rem);bottom:2.2rem;z-index:2;
+#sx-porte{position:absolute;right:clamp(1.6rem,5vw,5rem);bottom:calc(2.2rem + env(safe-area-inset-bottom,0px));z-index:2;
   font-family:var(--sxmono);font-size:11px;letter-spacing:.16em;color:#4A443B;
   text-decoration:none;border-bottom:1px solid transparent;opacity:0;
   transition:color .5s,border-color .5s,opacity 1.5s}
@@ -1756,7 +1766,7 @@ function seuil(){
 function ouvrir(){
   GLOW.classList.add("on");toc();
   clear();
-  T(function(){L1.innerHTML="Bonsoir.";L1.classList.add("in");},900);
+  T(function(){L1.innerHTML="Bonjour.";L1.classList.add("in");},900);
   T(function(){L2.innerHTML="Vous êtes entré.";L2.classList.add("in");},3800);
   T(function(){L2.classList.remove("in");},7200);
   T(function(){L2.innerHTML="Il n'y a rien à acheter ici.";L2.classList.add("in");},8800);
