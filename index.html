@@ -118,6 +118,10 @@
 
   .placeholder-inline { color: var(--muted); font-style: italic; }
 
+  /* consignes de rédaction : conservées dans le fichier, masquées à l'affichage */
+  .placeholder { display: none; }
+  .annee.placeholder-inline { font-size: 0; }
+  .annee.placeholder-inline .signe { font-size: 11px; }
   .placeholder {
     color: var(--muted);
     font-style: italic;
@@ -186,6 +190,18 @@
   a.oeuvre-titre .annee { font-weight: normal; font-size: 11px; color: var(--muted); white-space: nowrap; }
   a.oeuvre-titre .signe { font-weight: normal; color: var(--muted); }
   a.oeuvre-titre .soustitre { display: block; font-weight: normal; font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .note-liste { font-size: 12px; color: var(--muted); max-width: 620px; margin: 0 0 26px 0; }
+  .oeuvre-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    padding: 9px 0;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .oeuvre-simple .annee { font-weight: normal; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .oeuvre-simple .soustitre { display: block; font-weight: normal; font-size: 11px; color: var(--muted); margin-top: 1px; }
   .oeuvre-detail { display: none; padding: 0 0 16px 0; }
   .oeuvre-detail.ouvert { display: block; }
   .oeuvres li.vise { background: #f6f5f2; transition: background 0.5s; }
@@ -776,6 +792,8 @@
 
       <p>Les spectacles sont classés selon l'origine du texte : ceux du répertoire, ceux que j'ai écrits pour les adultes, ceux que j'ai écrits pour les enfants, et ceux qui sont nés de l'écriture du groupe. Cliquer sur un titre en ouvre le détail.</p>
 
+      <p class="note-liste">Cette liste rassemble une partie des spectacles créés depuis trente-cinq ans ; les notices se complètent peu à peu. Si vous avez joué dans l'une de ces créations et que vous en gardez une date, une photo ou un souvenir, <a href="#" onclick="showSection('contact'); return false;">écrivez-moi</a>.</p>
+
       <h2>mises en scène de textes d'auteurs</h2>
       <ul class="oeuvres" data-tri="annee">
         <li id="c-cerisaie">
@@ -788,11 +806,7 @@
           </div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Le Misanthrope</span><span class="annee">2021 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Le Misanthrope</em> de Molière — atelier du mardi soir de Kerfeunteun — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Le Misanthrope<span class="soustitre">Molière</span></span><span class="annee">2021</span></div>
         </li>
         <li id="c-songe">
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Le Songe d&#x27;une nuit d&#x27;été</span><span class="annee">2005 · 2025 <span class="signe">+</span></span></a>
@@ -804,33 +818,19 @@
           </div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Une maison de poupée</span><span class="annee">2023 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Une maison de poupée</em> de Henrik Ibsen — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Une maison de poupée<span class="soustitre">Henrik Ibsen</span></span><span class="annee">2023</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">On ne badine pas avec l&#x27;amour</span><span class="annee">2016 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>On ne badine pas avec l&#x27;amour</em> de Alfred de Musset — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">On ne badine pas avec l&#x27;amour<span class="soustitre">Alfred de Musset</span></span><span class="annee">2016</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Hamlet</span><span class="annee">2010 · 2022 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Hamlet</em> de William Shakespeare — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Hamlet<span class="soustitre">William Shakespeare</span></span><span class="annee">2010 · 2022</span></div>
         </li>
         <li id="c-oiseaux">
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Tous des oiseaux</span><span class="annee">2024 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
             <img class="entry-img" data-photo="oiseaux" alt="Tous des oiseaux, en scène">
-            <p class="attribution">D'après <em>Tous des oiseaux</em> de Wajdi Mouawad — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">D'après <em>Tous des oiseaux</em> de Wajdi Mouawad — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
@@ -838,153 +838,70 @@
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Iphigénie</span><span class="annee">2025 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
             <img class="entry-img" data-photo="iphigenie" alt="Iphigénie, en scène">
-            <p class="attribution">D'après <em>Iphigénie</em> de Tiago Rodrigues — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">D'après <em>Iphigénie</em> de Tiago Rodrigues — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
             <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
           </div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Électre<span class="soustitre">de Tiago Rodrigues</span></span><span class="annee">2026 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Électre</em> de Tiago Rodrigues — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Électre<span class="soustitre">de Tiago Rodrigues</span></span><span class="annee">2026</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Électre<span class="soustitre">de Sophocle</span></span><span class="annee">2017 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Électre</em> de Sophocle — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Électre<span class="soustitre">de Sophocle</span></span><span class="annee">2017</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Œdipe roi</span><span class="annee">2017 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Œdipe roi</em> de Sophocle — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Œdipe roi<span class="soustitre">Sophocle</span></span><span class="annee">2017</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Antigone</span><span class="annee">2024 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Antigone</em> de Sophocle — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Antigone<span class="soustitre">Sophocle</span></span><span class="annee">2024</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Un fil à la patte</span><span class="annee">2008 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Un fil à la patte</em> de Georges Feydeau — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Un fil à la patte<span class="soustitre">Georges Feydeau</span></span><span class="annee">2008</span></div>
         </li>
         <li id="c-revenants">
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Les Revenants</span><span class="annee">2025 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
             <img class="entry-img" data-photo="revenants" alt="Les Revenants, en scène">
-            <p class="attribution">D'après <em>Les Revenants</em> de Henrik Ibsen — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">D'après <em>Les Revenants</em> de Henrik Ibsen — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
             <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
           </div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Yvonne, princesse de Bourgogne</span><span class="annee">2026 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Yvonne, princesse de Bourgogne</em> de Witold Gombrowicz — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Yvonne, princesse de Bourgogne<span class="soustitre">Witold Gombrowicz</span></span><span class="annee">2026</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Douze hommes en colère</span><span class="annee">2017 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Douze hommes en colère</em> de Reginald Rose — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit et protégé : ajouter le nom du traducteur, et vérifier l'autorisation des ayants droit pour toute reprise.</p>
-            <p class="cta"><a href="https://www.youtube.com/watch?v=TP50JK1dF8o" target="_blank" rel="noopener">Voir le reportage &rarr;</a></p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Douze hommes en colère<span class="soustitre">Reginald Rose</span></span><span class="annee">2017</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Agamemnon</span><span class="annee">2011 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Agamemnon</em> d'Eschyle — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Agamemnon<span class="soustitre">Eschyle</span></span><span class="annee">2011</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">L&#x27;Illusion comique</span><span class="annee">2011 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>L&#x27;Illusion comique</em> de Pierre Corneille — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">L&#x27;Illusion comique<span class="soustitre">Pierre Corneille</span></span><span class="annee">2011</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">La Mégère apprivoisée</span><span class="annee">2016 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>La Mégère apprivoisée</em> de William Shakespeare — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">La Mégère apprivoisée<span class="soustitre">William Shakespeare</span></span><span class="annee">2016</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Timon d&#x27;Athènes</span><span class="annee">2016 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Timon d&#x27;Athènes</em> de William Shakespeare — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Timon d&#x27;Athènes<span class="soustitre">William Shakespeare</span></span><span class="annee">2016</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Le Roi Lear</span><span class="annee">2011 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Le Roi Lear</em> de William Shakespeare — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Le Roi Lear<span class="soustitre">William Shakespeare</span></span><span class="annee">2011</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Roméo et Juliette</span><span class="annee">2016 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Roméo et Juliette</em> de William Shakespeare — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Roméo et Juliette<span class="soustitre">William Shakespeare</span></span><span class="annee">2016</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">La Bonne Âme du Se-Tchouan</span><span class="annee">2010 · 2016 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>La Bonne Âme du Se-Tchouan</em> de Bertolt Brecht — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française. Brecht est encore protégé — l'autorisation de son éditeur (L'Arche) est nécessaire pour toute reprise.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">La Bonne Âme du Se-Tchouan<span class="soustitre">Bertolt Brecht</span></span><span class="annee">2010 · 2016</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Un air de famille</span><span class="annee">2005 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Un air de famille</em> d'Agnès Jaoui et Jean-Pierre Bacri — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte protégé : l'autorisation des ayants droit est nécessaire pour toute reprise.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Un air de famille<span class="soustitre">Agnès Jaoui et Jean-Pierre Bacri</span></span><span class="annee">2005</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Ivanov</span><span class="annee">2018 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Ivanov</em> de Anton Tchekhov — <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Ivanov<span class="soustitre">Anton Tchekhov</span></span><span class="annee">2018</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Jouer est un jeu</span><span class="annee">2024 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">Montage de textes d'après les propos de Peter Brook — <span class="placeholder-inline">[groupe]</span> — conception et mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases. Le montage est votre composition, mais les mots restent de Peter Brook : la mention doit le dire.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Jouer est un jeu<span class="soustitre">d'après les propos de Peter Brook</span></span><span class="annee">2024</span></div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Hamlet Alternative<span class="soustitre">montage de textes</span></span><span class="annee">1998 <span class="signe">+</span></span></a>
@@ -995,19 +912,10 @@
           </div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Faisons un rêve</span><span class="annee">1995 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Faisons un rêve</em> de Sacha Guitry — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché. Ajouter la compagnie et le lieu de création.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Faisons un rêve<span class="soustitre">Sacha Guitry</span></span><span class="annee">1995</span></div>
         </li>
         <li>
-          <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Moi, Feuerbach</span><span class="annee">1999 <span class="signe">+</span></span></a>
-          <div class="oeuvre-detail">
-            <p class="attribution">D'après <em>Moi, Feuerbach</em> de Tankred Dorst — mise en scène : Robert Joubin.</p>
-            <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché. Ajouter la compagnie et le lieu de création.</p>
-            <p class="placeholder">Texte traduit : ajouter le nom du traducteur, qui est légalement coauteur de la version française.</p>
-          </div>
+          <div class="oeuvre-simple"><span class="t">Moi, Feuerbach<span class="soustitre">Tankred Dorst</span></span><span class="annee">1999</span></div>
         </li>
       </ul>
 
@@ -1025,7 +933,7 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Orphée<span class="soustitre">pour ceux qui ont oublié d&#x27;aimer</span></span><span class="annee">2024 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
@@ -1051,7 +959,7 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">La fugue</span><span class="annee">2016 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
@@ -1059,7 +967,7 @@
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Sans ma mère</span><span class="annee">2025 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
             <img class="entry-img" src="data:image/jpeg;base64,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" alt="Sans ma mère, en scène">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">À compléter : groupe et lieu de création.</p>
             <p class="cta"><a href="https://www.youtube.com/watch?v=Ytux9mpLr6w" target="_blank" rel="noopener">Voir la vidéo de présentation &rarr;</a></p>
           </div>
@@ -1085,28 +993,28 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Adolescence</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, ce que le groupe a inventé. Ajouter l'année.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Brèves de chien</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, ce que le groupe a inventé. Ajouter l'année.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Les Forteresses</span><span class="annee">2012 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, ce que le groupe a inventé.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Tragédie contemporaine 1, 2 et 3<span class="soustitre">trilogie — l'amour, l'emprise, le pouvoir</span></span><span class="annee">2014 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Écriture dramatique collective de <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin. Bande-son originale : Didier Tallec.</p>
+            <p class="attribution">Écriture dramatique collective — mise en scène : Robert Joubin. Bande-son originale : Didier Tallec.</p>
             <p>C'est une écriture dramatique collective. Nous nous sommes demandé : qu'est-ce que les tragédies grecques ont à nous dire aujourd'hui ? Nous nous sommes engagés dans un processus de création basé sur la lecture et l'étude de pièces antiques, puis chaque acteur a choisi un personnage. Nous avons alors improvisé. Le texte que nous proposons est le résultat de ce voyage. Il s'agit d'une trilogie qui traite de l'amour (<em>Tragédie contemporaine 1</em>), de l'emprise (<em>Tragédie contemporaine 2</em>) et du pouvoir (<em>Tragédie contemporaine 3</em>).</p>
             <p>Le texte est cruel, parfois drôle. Les relations humaines, inspirées par la tragédie grecque, sont complexes et totales. Elles se dévoilent. Leur cruauté arrive à la lumière. Dans la structure du texte, la notion de chœur reste présente, nécessaire. Il s'agit d'une mise à distance qui nous permet d'envisager sous un autre angle l'action qui se déroule, parfois de l'expliciter. Parfois le chœur lui-même ne peut résister au désir d'intervenir dans la trajectoire de nos héros. Ces pièces nous questionnent sur notre nature : nos besoins ont-ils changé depuis 2500 ans ?</p>
             <p>Didier Tallec, compositeur de musique contemporaine, nous a accompagnés dans ce processus. Lors des séances, il a enregistré des sons, des voix. Il s'est questionné sur les sons de la tragédie antique et a composé une bande-son originale qui ponctue notre création.</p>
@@ -1115,42 +1023,42 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Chronique des années 60, 70, 80<span class="soustitre">trilogie</span></span><span class="annee">2013 <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de trois groupes d'adultes <span class="placeholder-inline">[préciser les groupes]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective de trois groupes d'adultes — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, comment chaque groupe s'est emparé de sa décennie, ce qui relie les trois volets. Ajouter, s'ils existent, les titres des trois volets et les groupes concernés.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Narcisse<span class="soustitre">d'après le mythe de Narcisse</span></span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de <span class="placeholder-inline">[groupe]</span>, d'après le mythe de Narcisse — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective, d'après le mythe de Narcisse — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, ce que le groupe a inventé. Ajouter l'année.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Chaque feuille offre son ombre</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, ce que le groupe a inventé. Ajouter l'année.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Après les larmes</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, ce que le groupe a inventé. Ajouter l'année.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Tous les nuages sont bordés d'argent</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, ce que le groupe a inventé. Ajouter l'année.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">In love<span class="soustitre">dans l'amour</span></span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Création collective de <span class="placeholder-inline">[groupe]</span> — mise en scène : Robert Joubin.</p>
+            <p class="attribution">Création collective — mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : d'où est partie l'écriture, ce que le groupe a inventé. Ajouter l'année.</p>
           </div>
         </li>
@@ -1162,42 +1070,42 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Jason l&#x27;âge d&#x27;Homme</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">La quête de Télémaque</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Le supplice de Tantale</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Prométhée, l&#x27;ami des hommes</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">La légende de Perséphone</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">La naissance d'une fleur<span class="soustitre">d'après le mythe de Narcisse</span></span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin, d'après le mythe de Narcisse — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin, d'après le mythe de Narcisse.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
@@ -1208,7 +1116,7 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Cendrillon</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
             <p class="placeholder">Si le texte suit la trame du conte, la mention « d'après le conte de Charles Perrault » est d'usage. Le conte est dans le domaine public : aucune autorisation n'est requise.</p>
           </div>
@@ -1216,14 +1124,14 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Le petit<span class="soustitre">d'après Le Petit Poucet</span></span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin, d'après le conte <em>Le Petit Poucet</em> de Charles Perrault — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin, d'après le conte <em>Le Petit Poucet</em> de Charles Perrault.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Allumette<span class="soustitre">d'après La Petite Fille aux allumettes</span></span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
@@ -1234,21 +1142,21 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Chronique collège</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Il suffit de travailler à l&#x27;école pour être heureux</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">L&#x27;enfant qui n&#x27;arrivait plus à parler</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
@@ -1270,14 +1178,14 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Les toujours heureux et les toujours tristes</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Le malheur des âmes sauvages</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
@@ -1295,14 +1203,14 @@
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Benji et le génie</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
         <li>
           <a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Le pays de Monsieur Rémy</span><span class="annee placeholder-inline">année <span class="signe">+</span></span></a>
           <div class="oeuvre-detail">
-            <p class="attribution">Texte et mise en scène : Robert Joubin — <span class="placeholder-inline">[groupe]</span>.</p>
+            <p class="attribution">Texte et mise en scène : Robert Joubin.</p>
             <p class="placeholder">Deux à quatre phrases : ce que raconte la pièce, et ce que vous avez cherché avec ce groupe-là.</p>
           </div>
         </li>
@@ -1310,12 +1218,12 @@
 
       <h2>textes non montés</h2>
       <ul class="oeuvres">
-        <li><a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Une histoire simple</span><span class="annee placeholder-inline">adultes ou jeunesse <span class="signe">+</span></span></a>
+        <li><a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Une histoire simple</span><span class="annee">adultes <span class="signe">+</span></span></a>
           <div class="oeuvre-detail"><p class="attribution">Texte : Robert Joubin.</p>
-            <p class="placeholder">Deux à trois phrases, le nombre de personnages, et la mention jeunesse ou adultes.</p></div></li>
-        <li><a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Pour une étreinte</span><span class="annee placeholder-inline">adultes ou jeunesse <span class="signe">+</span></span></a>
+            <p class="placeholder">Deux à trois phrases et le nombre de personnages.</p></div></li>
+        <li><a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Pour une étreinte</span><span class="annee">adultes <span class="signe">+</span></span></a>
           <div class="oeuvre-detail"><p class="attribution">Texte : Robert Joubin.</p>
-            <p class="placeholder">Deux à trois phrases, le nombre de personnages, et la mention jeunesse ou adultes.</p></div></li>
+            <p class="placeholder">Deux à trois phrases et le nombre de personnages.</p></div></li>
         <li><a class="oeuvre-titre" href="#" onclick="ouvrir(this); return false;"><span class="t">Un homme à terre</span><span class="annee">adultes <span class="signe">+</span></span></a>
           <div class="oeuvre-detail"><p class="attribution">Texte : Robert Joubin.</p>
             <p class="placeholder">Deux à trois phrases et le nombre de personnages.</p></div></li>
