@@ -283,6 +283,29 @@
   .seuil-invite a { border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
   .seuil-invite a:hover { text-decoration: none; border-bottom-color: var(--muted); }
   .seuil-invite span { color: var(--muted); }
+
+  /* AUTOPORTRAIT AU TRAIT — a droite du bloc "interventions en entreprise",
+     au-dessus du filet du footer. Petit format volontaire : c'est une
+     signature, pas un portrait. */
+  .contact-bas {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 620px;
+  }
+  .contact-bas .contact-bas-txt { flex: 1; min-width: 0; }
+  .portrait-trait {
+    width: 92px;
+    height: auto;
+    flex-shrink: 0;
+    margin-top: 26px;   /* aligne le haut du dessin sur le titre "interventions en entreprise" */
+    opacity: .88;
+  }
+  @media (max-width: 680px) {
+    .contact-bas { flex-direction: column; gap: 18px; }
+    .portrait-trait { width: 76px; margin-top: 0; }
+  }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -511,9 +534,13 @@
           <div class="oeuvre-detail">
             <p class="lead">Il est important de prendre conscience de ce qu'est un spectacle, et de ce qu'il n'est pas.</p>
             <p>Le mot spectacle indique tout simplement que ce qui se passe sur scène est spectaculaire, et qu'à ce titre il frappe le public. C'est cela l'essence du théâtre, et tout y concourt. La mise en scène est là pour que le public soit fortement impacté par ce qui se passe sur le plateau.</p>
-            <p>Contrairement à ce qu'on pense, ce n'est pas l'acteur qui crée le spectacle : il le suggère par des signes. C'est le public qui le crée, par son imaginaire, son expérience, sa sensibilité. Si les signes que donne l'acteur sont sincères et crédibles, alors chaque spectateur pourra rêver son propre spectacle.</p>
-            <p>À cet endroit-là, on touche à la définition même du mot théâtre, qui vient du grec <em>theatron</em> : le lieu d'où l'on regarde. De chaque place dans la salle, on voit en effet quelque chose de différent, on a un angle différent ; chaque spectateur, selon l'endroit où il est assis, voit autre chose.</p>
-            <p>Mais il y a une autre manière d'entendre « le lieu d'où l'on regarde ». C'est aussi qui je suis. L'endroit d'où je regarde, c'est mon histoire, c'est ma vie, c'est ma sensibilité, c'est mon âge, c'est mon sexe. Je regarde le spectacle à partir de là.</p>
+            <p>Je ne pratique pas le théâtre comme un divertissement. Il faut penser à ce que signifie, dans le langage de la guerre, faire diversion&nbsp;: occuper l'ennemi à quelque chose de factice pour qu'il perde de vue l'endroit où les choses se jouent. C'est cela, un divertissement — ôter des yeux l'endroit où les choses se jouent.</p>
+            <p>Contrairement à ce qu'on pense, ce n'est pas l'acteur qui crée le spectacle&nbsp;: il le suggère par des signes. C'est le public qui le crée, par son imaginaire, son expérience, sa sensibilité. Il ne le sait pas, mais c'est bien lui qui fabrique le spectacle&nbsp;: il recompose l'image à partir des signes que la scène lui envoie. Si ces signes sont sincères et crédibles, habités d'humanité, alors chaque spectateur pourra rêver son propre spectacle.</p>
+            <p>Voyez le trait de Picasso. Il a joué avec cela&nbsp;: deux ou trois traits, et nous voilà avec assez de matériau convaincant pour que notre imaginaire compose le visage avec lui. Le spectateur se sent agissant.</p>
+            <p>Si la forme est complète et close, il n'y a plus d'espace. C'est une attitude autoritaire, qui ne laisse pas le spectateur respirer&nbsp;: je veux que vous voyiez exactement ce que je montre, je ne veux pas que vous puissiez imaginer et rêver par vous-mêmes. Et cela crée l'ennui… ou la colère.</p>
+            <p>À cet endroit-là, on touche à la définition même du mot théâtre, qui vient du grec <em>theatron</em>&nbsp;: le lieu d'où l'on regarde. De chaque place dans la salle, on voit en effet quelque chose de différent, on a un angle différent&nbsp;; chaque spectateur, selon l'endroit où il est assis, voit autre chose.</p>
+            <p>Mais il y a une autre manière d'entendre «&nbsp;le lieu d'où l'on regarde&nbsp;». C'est aussi qui je suis. L'endroit d'où je regarde, c'est mon histoire, c'est ma vie, c'est ma sensibilité, c'est mon âge, c'est mon sexe. Je regarde le spectacle à partir de là.</p>
+            <p>Un bon spectacle serait celui qui envoie un minimum de signes, suffisamment convaincants pour laisser au spectateur la plus grande place possible pour rêver.</p>
           </div>
         </li>
         <li>
@@ -1282,12 +1309,18 @@
         <p><a href="mailto:contact@robertjoubin.fr">contact@robertjoubin.fr</a></p>
       </div>
 
-      <h2>interventions en entreprise</h2>
-      <div class="legal">
-        <p>Robert Joubin, entrepreneur individuel — 15 rue Joseph Le Brix, 29000 Quimper</p>
-        <p>SIRET : 499 879 393 00019 — code APE 85.52Z, enseignement culturel</p>
-        <p>TVA non applicable, article 293 B du code général des impôts</p>
-        <p>06 83 01 08 92 — <a href="mailto:contact@robertjoubin.fr">contact@robertjoubin.fr</a></p>
+      <div class="contact-bas">
+        <div class="contact-bas-txt">
+          <h2>interventions en entreprise</h2>
+          <div class="legal">
+            <p>Robert Joubin, entrepreneur individuel — 15 rue Joseph Le Brix, 29000 Quimper</p>
+            <p>SIRET : 499 879 393 00019 — code APE 85.52Z, enseignement culturel</p>
+            <p>TVA non applicable, article 293 B du code général des impôts</p>
+            <p>06 83 01 08 92 — <a href="mailto:contact@robertjoubin.fr">contact@robertjoubin.fr</a></p>
+          </div>
+        </div>
+        <img class="portrait-trait" src="portrait-trait.png" width="448" height="582"
+             alt="Autoportrait au trait de Robert Joubin" loading="lazy" decoding="async">
       </div>
     </div>
 
