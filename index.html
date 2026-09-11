@@ -1493,6 +1493,13 @@ window.addEventListener('DOMContentLoaded', function() {
     if (source) { im.src = source.src; }
   });
   var h = window.location.hash.replace('#', '');
+  if (!h) {
+    // lien sans dièse (ex. partagé sur Instagram) : ?s=section&a=ancre
+    var params = new URLSearchParams(window.location.search);
+    var s = params.get('s');
+    var a = params.get('a');
+    if (s) { h = a ? (s + '/' + a) : s; }
+  }
   if (!h) { return; }
   var parts = h.split('/');
   var sec = document.getElementById(parts[0]);
