@@ -1932,10 +1932,25 @@ document.addEventListener("keydown",function(e){
 })();
 </script>
 <script>
-  if (window.location.hash === '#temoignage') {
-    var el = document.getElementById('temoignage');
-    if (el) { el.open = true; el.scrollIntoView({behavior:'smooth', block:'start'}); }
-  }
+  // Gestion des liens entrants avec hash
+  (function() {
+    var hash = window.location.hash;
+    if (hash === '#temoignage' || hash === '#mouvement-libre') {
+      // Naviguer vers la fiche a-danse et ouvrir le témoignage
+      window.addEventListener('load', function() {
+        allerVers('ateliers', 'a-danse');
+        setTimeout(function() {
+          var tel = document.getElementById('temoignage');
+          if (tel) {
+            tel.open = true;
+            setTimeout(function() {
+              tel.scrollIntoView({behavior:'smooth', block:'start'});
+            }, 300);
+          }
+        }, 400);
+      });
+    }
+  })();
 </script>
 </body>
 </html>
