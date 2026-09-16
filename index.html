@@ -488,7 +488,7 @@
             <p class="entry-meta">Art Des Cygnes Studio, 11 bis rue de Stang Ar C'hoat, 29000 Quimper — 15 € la séance — sans inscription : on vient quand on veut, on paye à la séance</p>
             <p>Retrouver sa vitalité par le mouvement. Ce temps de mouvement libre est nourri de ma pratique du mouvement en rythme et de l'improvisation, du yoga, du judo — dont je suis quatrième dan —, et des entraînements physiques suivis auprès de pédagogues russes dans mon travail sur le corps de l'acteur. Porté par la musique, le corps retrouve sa fluidité et sa vitalité, et renoue avec des mouvements et des émotions parfois retenus. Il en naît une relation plus directe à soi, aux autres et au monde.</p>
             <p>Chaque séance suit le rythme d'une vague : un temps d'accueil, un temps de mouvement respiratoire et d'étirement, un temps de travail en relation avec un partenaire, puis un temps de mouvement en rythme, plus dynamique et énergétique, avant un retour progressif au calme.</p>
-            <details class="temoignage-toggle">
+            <details class="temoignage-toggle" id="temoignage">
               <summary>Mon expérience du mouvement</summary>
               <div class="temoignage">
               <p>Quand je suis né, ma mère était déjà atteinte d'une tumeur au cerveau depuis un an. Les premières années de ma vie ont été marquées par cette maladie qui n'a cessé de l'immobiliser dans son corps. Elle est morte quand j'avais sept ans. J'ai traversé cette période avec de longs temps d'apathie, de solitude et de peine — de figement.</p>
@@ -1930,6 +1930,12 @@ document.addEventListener("keydown",function(e){
   }
 });
 })();
+</script>
+<script>
+  if (window.location.hash === '#temoignage') {
+    var el = document.getElementById('temoignage');
+    if (el) { el.open = true; el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
 </script>
 </body>
 </html>
