@@ -1,0 +1,72 @@
+// ============================================================
+// CARNET — mode d'emploi
+// ------------------------------------------------------------
+// Les lignes qui commencent par // ne s'affichent jamais sur le site.
+//
+// Pour ajouter une note : copie le modèle ci-dessous, colle-le
+// JUSTE EN DESSOUS de ce mode d'emploi (au-dessus de la note
+// précédente), remplis-le, enregistre. La note du haut du fichier
+// est la note du haut du carnet.
+//
+// Les notes sont séparées par une ligne de trois tirets : ---
+// Une ligne vide entre deux paragraphes = un nouveau paragraphe.
+// *un mot entre étoiles* = en italique.
+// Une note sans texte reste invisible : c'est un brouillon.
+//
+// Modèle :
+//
+// date: 9 octobre 2026
+// titre: Le titre de la note
+// fils: L'École des Princes, Écriture
+//
+// Le texte de la note.
+//
+// ---
+// ============================================================
+
+date: 9 octobre 2026
+titre: Nous régnons tous
+fils: L'École des Princes, Enfants et adolescents, Jeu de l'acteur
+
+Lundi prochain, je commence une intervention avec un groupe de sixième : vingt-quatre heures de travail ensemble, du lundi au vendredi, et un spectacle présenté en fin de semaine.
+
+J'ai choisi de travailler sur le thème du *miroir des princes*. Qu'est-ce que diriger ? Qu'est-ce que devenir responsable ?
+
+Les écueils ne manquent pas. La question de départ, c'est la discipline d'un roi. Or, à notre époque, en république, il est hors de question d'envisager ce que pourrait être un pouvoir royal.
+
+Et pourtant, nous régnons tous. Chacun de nous a la responsabilité de sa vie. Selon notre engagement professionnel ou familial, nous avons tous des décisions à prendre. Sur quels critères personnels les prenons-nous ? Avons-nous été formés à régner ? Où cette formation se fait-elle ?
+
+Il y a deux manières d'apprendre : la première, c'est l'imitation ; la deuxième, l'imitation. Qui imitons-nous pour régner sur nos vies ?
+
+Voilà mon idée. Je veux mener avec les enfants une réflexion sur ce que c'est qu'être responsable, prendre des décisions qui auront un impact sur d'autres personnes. Je veux qu'ils soient entraînés dans cette réflexion.
+
+Nous vivons une époque où domine un fort sentiment d'impuissance : « ça » ne dépend pas de nous. C'est l'Europe qui décide. Les gaz à effet de serre ? Même si nous faisons attention, même si nous réduisons nos émissions, les États-Unis s'en moquent. C'est terrible de se sentir impuissant, de n'avoir aucune prise sur quelque chose qui, à nos yeux, va mal et doit changer.
+
+C'est l'idée de cette pièce : partager ce constat. Bien des choses essentielles dépendent de nous, de nos actions, de notre discipline. C'est même ce qui fait notre sentiment d'être vivants, d'accomplir quelque chose, notre fierté. Cela se joue dans nos relations. Là, nous avons de la prise, de l'influence. Là, nous régnons.
+
+Pour que les enfants entendent et pratiquent, il faut faire simple. Je prends la métaphore de la famille comme royaume. Le père et la mère sont les rois, les enfants sont les princes. La maison est le château, le jardin est le royaume ; le portail, le mur et la haie en sont les frontières.
+
+Au théâtre, dans un atelier, tout commence par ce passage : l'invitation à sentir ce qui dépend de nous. La première chose à faire, c'est d'écouter ce que nous sommes, notre réalité corporelle du jour. Y revenir, y revenir encore. C'est le début du règne.
+
+L'acteur n'est pas là pour accomplir ce que le metteur en scène veut de lui. Dans la salle, il ne doit y avoir que des rois, qui dialoguent à leurs frontières. Or les acteurs demandent souvent, implicitement, au metteur en scène de régner sur leur royaume, de leur dire comment faire. Le metteur en scène doit alors leur faire entendre, avec élégance, qu'ils sont rois et qu'ils sont invités à régner.
+
+---
+
+date: 8 octobre 2026
+titre: L'immobilité est un mouvement
+fils: Mouvement libre, Jeu de l'acteur
+
+
+---
+
+date: 8 octobre 2026
+titre: Éros et Thanatos, un exercice
+fils: Exercices, Ateliers
+
+
+---
+
+date: 8 octobre 2026
+titre: Le poids et la justesse de l'acteur
+fils: Jeu de l'acteur
+
